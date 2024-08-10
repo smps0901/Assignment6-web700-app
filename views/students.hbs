@@ -1,0 +1,42 @@
+<div class="container">
+    <h1 class="mt-5">Students</h1>
+    <a href="/students/add" class="btn btn-success float-end">Add New Student</a>
+    {{#if students.length}}
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Student Num</th>
+                    <th>Full Name</th>
+                    {{!-- <th>First Name</th>
+                    <th>Last Name</th> --}}
+                    <th>Email</th>
+                    <th>Address</th>
+                    {{!-- <th>TA</th> --}}
+                    <th>Status</th>
+                    <th>Course ID</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students}}
+                    <tr>
+                        <td>{{this.studentNum}}</td>
+                        <td><a href="/student/{{this.studentNum}}">{{this.firstName}} {{this.lastName}}</a></td>
+                        {{!-- <td>{{this.firstName}}</td>
+                        <td>{{this.lastName}}</td> --}}
+                        <td>{{this.email}}</td>
+                        <td>{{this.addressStreet}}, {{this.addressCity}}, {{this.addressProvince}}</td>
+                        {{!-- <td>{{#if this.TA}}Yes{{else}}No{{/if}}</td> --}}
+                        <td>{{this.status}}</td>
+                        {{!-- <td>{{this.course}}</td> --}}
+                        <td><a href="/students?course={{this.course}}">{{this.course}}</a></td>
+                        
+                        <td><a href="/student/delete/{{this.studentNum}}" class="btn btn-danger">Remove</a></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>No students available</p>
+    {{/if}}
+</div>
